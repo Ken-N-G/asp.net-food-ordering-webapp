@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMasterPage.Master.cs" Inherits="MunchHub.Site3" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MunchHub - <%: Page.Title %></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="../Content/CustomStylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color:#fbdcac;">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="AdminDashboard.aspx">MunchHub</a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" style="margin-left: auto;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" runat="server" href="AdminManageUsers.aspx">Manage Users</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="AdminManageCategories.aspx">Manage Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="AdminManageProducts.aspx">Manage Products</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="AdminManageOrders.aspx">Manage Orders</a></li>
+                    </ul>
+                    <asp:ContentPlaceHolder ID="RightMarginWidgets" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </nav>
+        <asp:ContentPlaceHolder ID="PreMainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="container min-vh-100">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - MunchHub</p>
+        </footer>
+    </form>
+    <asp:PlaceHolder runat="server">
+    <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
